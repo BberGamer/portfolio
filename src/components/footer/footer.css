@@ -1,0 +1,135 @@
+footer {
+  background: linear-gradient(135deg, var(--color-primary), #4e54c8, #8f94fb);
+  padding: 3rem 0;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 7rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hiệu ứng gradient động ở background */
+footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 20%);
+  background-size: 10% 10%;
+  animation: move-bg 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes move-bg {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(20%, 20%);
+  }
+}
+
+footer a {
+  color: var(--color-bg);
+  transition: color 0.3s ease;
+}
+
+.footer_logo {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer_logo:hover {
+  transform: scale(1.1) rotate(-2deg);
+  color: #ffeb3b;
+}
+
+.permalinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.permalinks a {
+  position: relative;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.permalinks a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #ffeb3b;
+  left: 50%;
+  bottom: -5px;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.permalinks a:hover {
+  color: #ffeb3b;
+}
+
+.permalinks a:hover::after {
+  width: 100%;
+}
+
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer__socials a {
+  background: var(--color-bg);
+  color: var(--color-white);
+  padding: 0.8rem;
+  border-radius: 50%;
+  display: flex;
+  border: 1px solid transparent;
+  font-size: 1.2rem;
+  transition: transform 0.4s ease, background 0.4s ease, color 0.4s ease;
+}
+
+.footer__socials a:hover {
+  background: #ffeb3b;
+  color: #333;
+  transform: translateY(-5px) rotate(10deg);
+}
+
+.footer__copyright {
+  color: var(--color-bg);
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 600px) {
+  .permalinks {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer__socials {
+    margin-bottom: 2rem;
+  }
+}
